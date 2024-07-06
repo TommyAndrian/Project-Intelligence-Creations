@@ -78,7 +78,7 @@ class KomunikasiManajemenDetail(generics.RetrieveUpdateDestroyAPIView):
 
 def status_form_view(request):
     # URL API untuk mendapatkan daftar proyek dari myapp1
-    api_url = 'http://10.24.80.147:8004/api/projek-list/'
+    api_url = 'http://192.168.240.72:8004/api/projek-list/'
 
     # Ambil data dari API
     response = requests.get(api_url)
@@ -96,7 +96,7 @@ def status_form_view(request):
 
 def project_view(request):
     # URL API untuk mendapatkan daftar proyek dari myapp1
-    api_url = 'http://10.24.80.147:8004/api/projek-list/'
+    api_url = 'http://192.168.240.72:8004/api/projek-list/'
 
     # Ambil data dari API
     response = requests.get(api_url)
@@ -138,7 +138,7 @@ def post_status_view(request):
             return JsonResponse({'error': 'Data tidak valid. ID Proyek dan status diperlukan.'}, status=400)
 
         # URL untuk menyimpan status ke API Django Anda
-        api_url = 'http://10.24.80.147:8004/api/status/'
+        api_url = 'http://192.168.240.72:8004/api/status/'
 
         # Persiapkan data untuk permintaan POST
         data = {
@@ -159,7 +159,7 @@ def post_status_view(request):
     return JsonResponse({'error': 'Metode permintaan tidak valid.'}, status=405)
 
 def file_list(request):
-    api_url = 'http://10.24.76.57:8002/api/files/'  # Replace with your actual API endpoint
+    api_url = 'http://192.168.240.38:8002/api/files/'  # Replace with your actual API endpoint
     response = requests.get(api_url)
 
     if response.status_code == 200:
@@ -172,7 +172,7 @@ def file_list(request):
 
 def apiproject_list(request):
     # URL dari API
-    url = 'http://10.24.80.147:8005/api/projects/'
+    url = 'http://192.168.34.72:8004/api/projek-list/'
 
     # Mengirim permintaan GET
     response = requests.get(url)
@@ -195,7 +195,7 @@ def apiproject_list(request):
 
 
 def fetch_api_data(request):
-    api_url = 'http://10.24.80.147:8005/pekerjaan/1/'
+    api_url = 'http://192.168.240.72:8005/pekerjaan/1/update/'
     response = requests.get(api_url)
 
     if response.status_code == 200:
@@ -207,7 +207,7 @@ def fetch_api_data(request):
 
 def update_status(request):
     if request.method == 'PATCH':
-        api_url = 'http://10.24.80.147:8005/pekerjaan/1/'
+        api_url = 'http://192.168.240.72:8005/pekerjaan/1/'
         new_status = json.loads(request.body).get('status')
         
         headers = {
